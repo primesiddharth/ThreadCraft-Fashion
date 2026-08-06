@@ -13,7 +13,7 @@ export const BLOG_POSTS: BlogPost[] = [
     authorRole: 'Senior Stylist',
     date: '2026-07-15',
     readTime: '6 min read',
-    cover: `${PX}/767972/pexels-photo-767972.jpeg?auto=compress&cs=tinysrgb&w=1600`,
+    cover: 'https://images.pexels.com/photos/11105035/pexels-photo-11105035.jpeg',
     tags: ['Monsoon', 'Layering', 'Styling', 'Chennai'],
     content: [
       'Chennai monsoons are a mood of their own — sudden downpours, heavy humidity, and that particular grey light that makes everything look cinematic. The challenge is dressing for it without retreating into a uniform of dark, shapeless layers.',
@@ -35,7 +35,7 @@ export const BLOG_POSTS: BlogPost[] = [
     authorRole: 'Ethnic Wear Curator',
     date: '2026-07-08',
     readTime: '5 min read',
-    cover: `${PX}/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=1600`,
+    cover: 'https://images.pexels.com/photos/27575104/pexels-photo-27575104.jpeg',
     tags: ['Saree', 'Ethnic', 'Styling', 'Kanchipuram'],
     content: [
       'The Kanchipuram silk saree is a garment that carries centuries of craft in its weave. But tradition does not mean stasis — how you drape and pair it can transform its character entirely.',
@@ -57,7 +57,7 @@ export const BLOG_POSTS: BlogPost[] = [
     authorRole: 'Master Tailor',
     date: '2026-06-28',
     readTime: '7 min read',
-    cover: `${PX}/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=1600`,
+    cover: 'https://images.pexels.com/photos/29882823/pexels-photo-29882823.jpeg',
     tags: ['Menswear', 'Tailoring', 'Suits', 'Formal'],
     content: [
       'A well-tailored wardrobe is not about owning many suits. It is about owning the right ones — pieces that fit, flatter, and work together across occasions.',
@@ -101,7 +101,7 @@ export const BLOG_POSTS: BlogPost[] = [
     authorRole: 'Senior Stylist',
     date: '2026-05-30',
     readTime: '5 min read',
-    cover: `${PX}/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=1600`,
+    cover: `${PX}/9558567/pexels-photo-9558567.jpeg?auto=compress&cs=tinysrgb&w=1600`,
     tags: ['Spring', 'Transition', 'Layering', 'Styling'],
     content: [
       'Transition seasons — the weeks between winter and spring, summer and monsoon — are the hardest to dress for. Mornings are cool, afternoons are warm, and the weather changes by the hour.',

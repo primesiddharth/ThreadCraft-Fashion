@@ -338,14 +338,14 @@ export function Navbar() {
 
 function getCollectionImage(slug: string): number {
   const map: Record<string, number> = {
-    summer: 767972,
+    summer: 1844644,
     winter: 2703202,
     festive: 2589653,
     wedding: 1755428,
     'office-wear': 769733,
     casual: 1183266,
     luxury: 904350,
-    streetwear: 1666071,
+    streetwear: 37297401,
   };
   return map[slug] || 767972;
 }

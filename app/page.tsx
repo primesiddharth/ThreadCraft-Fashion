@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Truck,
@@ -13,13 +13,13 @@ import {
   Quote,
   Instagram,
   ChevronRight,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { ProductCard } from '@/components/shared/ProductCard';
-import { SectionHeading } from '@/components/shared/SectionHeading';
-import { ParallaxBanner } from '@/components/shared/ParallaxBanner';
-import { CTA } from '@/components/shared/CTA';
-import { Newsletter } from '@/components/shared/Newsletter';
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ProductCard } from "@/components/shared/ProductCard";
+import { SectionHeading } from "@/components/shared/SectionHeading";
+import { ParallaxBanner } from "@/components/shared/ParallaxBanner";
+import { CTA } from "@/components/shared/CTA";
+import { Newsletter } from "@/components/shared/Newsletter";
 import {
   fadeUp,
   fadeLeft,
@@ -27,37 +27,71 @@ import {
   containerStagger,
   itemFadeUp,
   viewportOnce,
-} from '@/lib/animations';
-import { PRODUCTS } from '@/data/products';
-import { COLLECTIONS } from '@/data/collections';
-import { TESTIMONIALS } from '@/data/gallery';
-import { BLOG_POSTS } from '@/data/blog';
-import { BUSINESS } from '@/constants/business';
-import { HeroSection } from '@/components/home/HeroSection';
+} from "@/lib/animations";
+import { PRODUCTS } from "@/data/products";
+import { COLLECTIONS } from "@/data/collections";
+import { TESTIMONIALS } from "@/data/gallery";
+import { BLOG_POSTS } from "@/data/blog";
+import { BUSINESS } from "@/constants/business";
+import { HeroSection } from "@/components/home/HeroSection";
 
-const PX = 'https://images.pexels.com/photos';
+const PX = "https://images.pexels.com/photos";
 
 const featuredCategories = [
-  { label: "Men's Collection", href: '/shop/men', image: `${PX}/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=800` },
-  { label: "Women's Collection", href: '/shop/women', image: `${PX}/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=800` },
-  { label: 'Kids Collection', href: '/shop/kids', image: `${PX}/1620760/pexels-photo-1620760.jpeg?auto=compress&cs=tinysrgb&w=800` },
-  { label: 'Accessories', href: '/shop/accessories', image: `${PX}/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=800` },
+  {
+    label: "Men's Collection",
+    href: "/shop/men",
+    image:
+      "https://images.pexels.com/photos/27969126/pexels-photo-27969126.jpeg",
+  },
+  {
+    label: "Women's Collection",
+    href: "/shop/women",
+    image: `${PX}/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=800`,
+  },
+  {
+    label: "Kids Collection",
+    href: "/shop/kids",
+    image:
+      "https://images.pexels.com/photos/12303643/pexels-photo-12303643.jpeg",
+  },
+  {
+    label: "Accessories",
+    href: "/shop/accessories",
+    image: `${PX}/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=800`,
+  },
 ];
 
 const whyChoose = [
-  { Icon: Truck, title: 'Free Shipping', desc: 'On all orders above ₹2,999 across India' },
-  { Icon: RefreshCw, title: '30-Day Returns', desc: 'Easy returns and exchanges, no questions asked' },
-  { Icon: ShieldCheck, title: 'Secure Payment', desc: '100% secure checkout with encrypted payments' },
-  { Icon: Headphones, title: 'Personal Styling', desc: 'Complimentary styling sessions in-store and online' },
+  {
+    Icon: Truck,
+    title: "Free Shipping",
+    desc: "On all orders above ₹2,999 across India",
+  },
+  {
+    Icon: RefreshCw,
+    title: "30-Day Returns",
+    desc: "Easy returns and exchanges, no questions asked",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Secure Payment",
+    desc: "100% secure checkout with encrypted payments",
+  },
+  {
+    Icon: Headphones,
+    title: "Personal Styling",
+    desc: "Complimentary styling sessions in-store and online",
+  },
 ];
 
 const instagramImages = [
-  `${PX}/767972/pexels-photo-767972.jpeg?auto=compress&cs=tinysrgb&w=400`,
+  "https://images.pexels.com/photos/34155081/pexels-photo-34155081.jpeg",
   `${PX}/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=400`,
   `${PX}/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=400`,
   `${PX}/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=400`,
-  `${PX}/1666071/pexels-photo-1666071.jpeg?auto=compress&cs=tinysrgb&w=400`,
-  `${PX}/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=400`,
+  "https://images.pexels.com/photos/11805134/pexels-photo-11805134.jpeg",
+  "https://images.pexels.com/photos/12303643/pexels-photo-12303643.jpeg",
 ];
 
 export default function HomePage() {
@@ -86,7 +120,10 @@ export default function HomePage() {
           >
             {featuredCategories.map((cat) => (
               <motion.div key={cat.label} variants={itemFadeUp}>
-                <Link href={cat.href} className="group relative block aspect-[3/4] overflow-hidden rounded-lg">
+                <Link
+                  href={cat.href}
+                  className="group relative block aspect-[3/4] overflow-hidden rounded-lg"
+                >
                   <Image
                     src={cat.image}
                     alt={cat.label}
@@ -96,7 +133,9 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="font-display text-xl font-semibold text-white">{cat.label}</h3>
+                    <h3 className="font-display text-xl font-semibold text-white">
+                      {cat.label}
+                    </h3>
                     <span className="mt-1 flex items-center gap-1 text-sm text-white/80 transition-transform group-hover:translate-x-1">
                       Discover <ArrowRight className="h-4 w-4" />
                     </span>
@@ -109,7 +148,10 @@ export default function HomePage() {
       </section>
 
       {/* New Arrivals */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ backgroundColor: "hsl(var(--muted))" }}
+      >
         <div className="container-luxury">
           <div className="flex flex-col items-end justify-between gap-4 sm:flex-row">
             <SectionHeading
@@ -186,7 +228,10 @@ export default function HomePage() {
       </section>
 
       {/* Trending Fashion */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ backgroundColor: "hsl(var(--muted))" }}
+      >
         <div className="container-luxury">
           <div className="flex flex-col items-end justify-between gap-4 sm:flex-row">
             <SectionHeading
@@ -222,8 +267,16 @@ export default function HomePage() {
       <section className="py-20 lg:py-28">
         <div className="container-luxury">
           <div className="grid gap-4 lg:grid-cols-2">
-            <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-              <Link href="/shop/men" className="group relative block aspect-[4/5] overflow-hidden rounded-lg">
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
+              <Link
+                href="/shop/men"
+                className="group relative block aspect-[4/5] overflow-hidden rounded-lg"
+              >
                 <Image
                   src={`${PX}/769749/pexels-photo-769749.jpeg?auto=compress&cs=tinysrgb&w=900`}
                   alt="Men's collection"
@@ -233,19 +286,37 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">For Him</span>
-                  <h3 className="mt-2 font-display text-3xl font-semibold text-white sm:text-4xl">Men&apos;s Edit</h3>
-                  <p className="mt-2 max-w-sm text-sm text-white/80">Tailored blazers, selvedge denim, and everyday essentials with intention.</p>
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+                    For Him
+                  </span>
+                  <h3 className="mt-2 font-display text-3xl font-semibold text-white sm:text-4xl">
+                    Men&apos;s Edit
+                  </h3>
+                  <p className="mt-2 max-w-sm text-sm text-white/80">
+                    Tailored blazers, selvedge denim, and everyday essentials
+                    with intention.
+                  </p>
                   <span className="mt-4 flex items-center gap-1 text-sm font-medium text-white">
-                    Shop Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    Shop Now{" "}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
             </motion.div>
-            <motion.div variants={fadeRight} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-              <Link href="/shop/women" className="group relative block aspect-[4/5] overflow-hidden rounded-lg">
+            <motion.div
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
+              <Link
+                href="/shop/women"
+                className="group relative block aspect-[4/5] overflow-hidden rounded-lg"
+              >
                 <Image
-                  src={`${PX}/1755427/pexels-photo-1755427.jpeg?auto=compress&cs=tinysrgb&w=900`}
+                  src={
+                    "https://images.pexels.com/photos/17040979/pexels-photo-17040979.jpeg"
+                  }
                   alt="Women's collection"
                   fill
                   sizes="50vw"
@@ -253,11 +324,19 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">For Her</span>
-                  <h3 className="mt-2 font-display text-3xl font-semibold text-white sm:text-4xl">Women&apos;s Edit</h3>
-                  <p className="mt-2 max-w-sm text-sm text-white/80">Silk blouses, evening gowns, and heirloom sarees for every occasion.</p>
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+                    For Her
+                  </span>
+                  <h3 className="mt-2 font-display text-3xl font-semibold text-white sm:text-4xl">
+                    Women&apos;s Edit
+                  </h3>
+                  <p className="mt-2 max-w-sm text-sm text-white/80">
+                    Silk blouses, evening gowns, and heirloom sarees for every
+                    occasion.
+                  </p>
                   <span className="mt-4 flex items-center gap-1 text-sm font-medium text-white">
-                    Shop Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    Shop Now{" "}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
@@ -287,16 +366,26 @@ export default function HomePage() {
                 />
               </div>
               <div className="flex flex-col justify-center gap-4 bg-accent/5 p-8 lg:p-16">
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Little Style</span>
-                <h3 className="font-display text-3xl font-semibold sm:text-4xl">Kids Collection</h3>
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+                  Little Style
+                </span>
+                <h3 className="font-display text-3xl font-semibold sm:text-4xl">
+                  Kids Collection
+                </h3>
                 <p className="text-base text-muted-foreground">
-                  Soft organic cottons, playful prints, and comfortable fits for every adventure.
-                  From sunny day dresses to dapper party suits, our kids&apos; edit is crafted with the
-                  same care as our adult collections.
+                  Soft organic cottons, playful prints, and comfortable fits for
+                  every adventure. From sunny day dresses to dapper party suits,
+                  our kids&apos; edit is crafted with the same care as our adult
+                  collections.
                 </p>
                 <div>
-                  <Button asChild className="mt-2 bg-accent text-white hover:bg-accent/90">
-                    <Link href="/shop/kids">Shop Kids <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Button
+                    asChild
+                    className="mt-2 bg-accent text-white hover:bg-accent/90"
+                  >
+                    <Link href="/shop/kids">
+                      Shop Kids <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -333,7 +422,10 @@ export default function HomePage() {
           >
             {COLLECTIONS.slice(0, 4).map((col) => (
               <motion.div key={col.slug} variants={itemFadeUp}>
-                <Link href={`/collections/${col.slug}`} className="group relative block aspect-[3/4] overflow-hidden rounded-lg">
+                <Link
+                  href={`/collections/${col.slug}`}
+                  className="group relative block aspect-[3/4] overflow-hidden rounded-lg"
+                >
                   <Image
                     src={col.heroImage}
                     alt={col.name}
@@ -343,9 +435,16 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <span className="text-xs uppercase tracking-wider text-white/70">{col.season}</span>
-                    <h3 className="mt-1 font-display text-xl font-semibold text-white">{col.name}</h3>
-                    <span className="mt-1 text-xs text-white/80">{col.pieces} pieces · From ₹{col.startingPrice.toLocaleString('en-IN')}</span>
+                    <span className="text-xs uppercase tracking-wider text-white/70">
+                      {col.season}
+                    </span>
+                    <h3 className="mt-1 font-display text-xl font-semibold text-white">
+                      {col.name}
+                    </h3>
+                    <span className="mt-1 text-xs text-white/80">
+                      {col.pieces} pieces · From ₹
+                      {col.startingPrice.toLocaleString("en-IN")}
+                    </span>
                   </div>
                 </Link>
               </motion.div>
@@ -353,14 +452,19 @@ export default function HomePage() {
           </motion.div>
           <div className="mt-8 text-center">
             <Button asChild variant="outline">
-              <Link href="/collections">View All Collections <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link href="/collections">
+                View All Collections <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Why Choose ThreadCraft */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ backgroundColor: "hsl(var(--muted))" }}
+      >
         <div className="container-luxury">
           <SectionHeading
             label="The ThreadCraft Promise"
@@ -401,12 +505,31 @@ export default function HomePage() {
           />
           <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
             {[
-              { src: `${PX}/767972/pexels-photo-767972.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Silk blouse editorial', label: 'Ivory Edit' },
-              { src: `${PX}/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Tailoring editorial', label: 'Boardroom' },
-              { src: `${PX}/1666071/pexels-photo-1666071.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Streetwear editorial', label: 'Street Drop' },
-              { src: `${PX}/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Outerwear editorial', label: 'Winter Layer' },
-              { src: `${PX}/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Saree editorial', label: 'Heritage' },
-              { src: `${PX}/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Accessories editorial', label: 'Crafted' },
+              {
+                src: `${PX}/35399679/pexels-photo-35399679.jpeg?auto=compress&cs=tinysrgb&w=600`,
+                alt: "Silk blouse editorial",
+                label: "Ivory Edit",
+              },
+              {
+                src: `${PX}/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=600`,
+                alt: "Tailoring editorial",
+                label: "Boardroom",
+              },
+              {
+                src: `${PX}/36209790/pexels-photo-36209790.jpeg?auto=compress&cs=tinysrgb&w=600`,
+                alt: "Streetwear editorial",
+                label: "Street Drop",
+              },
+              {
+                src: `${PX}/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=600`,
+                alt: "Outerwear editorial",
+                label: "Winter Layer",
+              },
+              {
+                src: `${PX}/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=600`,
+                alt: "Accessories editorial",
+                label: "Crafted",
+              },
             ].map((img, i) => (
               <motion.div
                 key={i}
@@ -414,7 +537,7 @@ export default function HomePage() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
-                className={`group relative overflow-hidden rounded-lg ${i === 0 ? 'lg:row-span-2' : ''} ${i === 0 ? 'aspect-[3/4] lg:aspect-auto' : 'aspect-[4/5]'}`}
+                className={`group relative overflow-hidden rounded-lg ${i === 0 ? "lg:row-span-2" : ""} ${i === 0 ? "aspect-[3/4] lg:aspect-auto" : "aspect-[4/5]"}`}
               >
                 <Image
                   src={img.src}
@@ -425,21 +548,28 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="absolute bottom-4 left-4 translate-y-2 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                  <span className="font-display text-lg font-semibold text-white">{img.label}</span>
+                  <span className="font-display text-lg font-semibold text-white">
+                    {img.label}
+                  </span>
                 </div>
               </motion.div>
             ))}
           </div>
           <div className="mt-8 text-center">
             <Button asChild variant="outline">
-              <Link href="/lookbook">View Full Lookbook <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link href="/lookbook">
+                View Full Lookbook <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Customer Reviews */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ backgroundColor: "hsl(var(--muted))" }}
+      >
         <div className="container-luxury">
           <SectionHeading
             label="Loved By Thousands"
@@ -462,15 +592,28 @@ export default function HomePage() {
                 <Quote className="h-8 w-8 text-accent/30" />
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className={`h-4 w-4 ${i < t.rating ? 'fill-accent text-accent' : 'text-border'}`} />
+                    <Star
+                      key={i}
+                      className={`h-4 w-4 ${i < t.rating ? "fill-accent text-accent" : "text-border"}`}
+                    />
                   ))}
                 </div>
-                <p className="flex-1 text-sm leading-relaxed text-muted-foreground">&ldquo;{t.quote}&rdquo;</p>
+                <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
                 <div className="flex items-center gap-3 border-t border-border pt-4">
-                  <Image src={t.avatar} alt={t.name} width={40} height={40} className="rounded-full object-cover" />
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 rounded-full object-cover object-center ring-2 ring-border"
+                  />
                   <div>
                     <p className="text-sm font-semibold">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role} · {t.location}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {t.role} · {t.location}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -478,7 +621,9 @@ export default function HomePage() {
           </motion.div>
           <div className="mt-8 text-center">
             <Button asChild variant="outline">
-              <Link href="/testimonials">Read More Reviews <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link href="/testimonials">
+                Read More Reviews <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -525,7 +670,10 @@ export default function HomePage() {
       </section>
 
       {/* Blog Preview */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ backgroundColor: "hsl(var(--muted))" }}
+      >
         <div className="container-luxury">
           <div className="flex flex-col items-end justify-between gap-4 sm:flex-row">
             <SectionHeading
@@ -534,7 +682,10 @@ export default function HomePage() {
               description="Styling guides, trend reports, and stories from behind the seams."
               align="left"
             />
-            <Link href="/blog" className="flex items-center gap-1 text-sm font-medium text-accent hover:gap-2 transition-all">
+            <Link
+              href="/blog"
+              className="flex items-center gap-1 text-sm font-medium text-accent hover:gap-2 transition-all"
+            >
               View All <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -547,7 +698,10 @@ export default function HomePage() {
           >
             {BLOG_POSTS.slice(0, 3).map((post) => (
               <motion.article key={post.slug} variants={itemFadeUp}>
-                <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-4">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col gap-4"
+                >
                   <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
                     <Image
                       src={post.cover}
@@ -558,12 +712,18 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-accent">{post.category}</span>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                      {post.category}
+                    </span>
                     <h3 className="mt-2 font-display text-xl font-semibold leading-snug transition-colors group-hover:text-accent">
                       {post.title}
                     </h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
-                    <span className="mt-3 text-xs text-muted-foreground">{post.readTime} · {post.date}</span>
+                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    <span className="mt-3 text-xs text-muted-foreground">
+                      {post.readTime} · {post.date}
+                    </span>
                   </div>
                 </Link>
               </motion.article>
@@ -584,10 +744,22 @@ export default function HomePage() {
             />
             <div className="flex flex-col gap-3">
               {[
-                { q: 'How long does delivery take?', a: '1-2 days within Chennai, 3-5 days across India.' },
-                { q: 'What is your return policy?', a: '30-day easy returns on all unworn items with tags.' },
-                { q: 'Do you offer personal styling?', a: 'Yes, complimentary in-store and online styling sessions.' },
-                { q: 'Are your fabrics ethically sourced?', a: 'We prioritize organic cotton, handloom linen, and certified dyes.' },
+                {
+                  q: "How long does delivery take?",
+                  a: "1-2 days within Chennai, 3-5 days across India.",
+                },
+                {
+                  q: "What is your return policy?",
+                  a: "30-day easy returns on all unworn items with tags.",
+                },
+                {
+                  q: "Do you offer personal styling?",
+                  a: "Yes, complimentary in-store and online styling sessions.",
+                },
+                {
+                  q: "Are your fabrics ethically sourced?",
+                  a: "We prioritize organic cotton, handloom linen, and certified dyes.",
+                },
               ].map((item, i) => (
                 <motion.details
                   key={i}
@@ -604,7 +776,10 @@ export default function HomePage() {
                   <p className="mt-3 text-sm text-muted-foreground">{item.a}</p>
                 </motion.details>
               ))}
-              <Link href="/faqs" className="mt-2 flex items-center gap-1 text-sm font-medium text-accent hover:gap-2 transition-all">
+              <Link
+                href="/faqs"
+                className="mt-2 flex items-center gap-1 text-sm font-medium text-accent hover:gap-2 transition-all"
+              >
                 See All FAQs <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -613,10 +788,18 @@ export default function HomePage() {
       </section>
 
       {/* Store Location */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: 'hsl(var(--muted))' }}>
+      <section
+        className="py-20 lg:py-28"
+        style={{ backgroundColor: "hsl(var(--muted))" }}
+      >
         <div className="container-luxury">
           <div className="grid gap-12 lg:grid-cols-2">
-            <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+            <motion.div
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+            >
               <SectionHeading
                 label="Visit Us"
                 title="Our Chennai Flagship"
@@ -624,13 +807,20 @@ export default function HomePage() {
                 align="left"
               />
               <div className="mt-6 flex flex-col gap-3 text-sm">
-                <p className="font-medium">{BUSINESS.address.line1}, {BUSINESS.address.line2}</p>
-                <p className="text-muted-foreground">{BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.postalCode}</p>
+                <p className="font-medium">
+                  {BUSINESS.address.line1}, {BUSINESS.address.line2}
+                </p>
+                <p className="text-muted-foreground">
+                  {BUSINESS.address.city}, {BUSINESS.address.state}{" "}
+                  {BUSINESS.address.postalCode}
+                </p>
                 <p className="text-muted-foreground">{BUSINESS.hours}</p>
                 <p className="text-accent">{BUSINESS.phone}</p>
               </div>
               <Button asChild className="mt-6">
-                <Link href="/contact">Get Directions <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Link href="/contact">
+                  Get Directions <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </motion.div>
             <motion.div

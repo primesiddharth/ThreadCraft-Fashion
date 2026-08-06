@@ -93,7 +93,7 @@ export function ParallaxBanner({
               </h2>
             )}
             {subtitle && (
-              <p className="max-w-xl text-base text-white/85 sm:text-lg">
+              <p className="max-w-xl text-base text-white/90 sm:text-lg">
                 {subtitle}
               </p>
             )}

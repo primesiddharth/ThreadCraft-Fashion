@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   Instagram,
   Facebook,
@@ -13,49 +13,72 @@ import {
   Mail,
   Clock,
   ArrowRight,
-} from 'lucide-react';
-import { BUSINESS, SHOP_CATEGORIES, COLLECTIONS_LIST } from '@/constants/business';
-import { fadeUp, viewportOnce } from '@/lib/animations';
+} from "lucide-react";
+import {
+  BUSINESS,
+  SHOP_CATEGORIES,
+  COLLECTIONS_LIST,
+} from "@/constants/business";
+import { fadeUp, viewportOnce } from "@/lib/animations";
 
 const customerService = [
-  { label: 'Contact Us', href: '/contact' },
-  { label: 'FAQs', href: '/faqs' },
-  { label: 'Shipping Policy', href: '/shipping-policy' },
-  { label: 'Returns & Refunds', href: '/return-policy' },
-  { label: 'Track Your Order', href: '/contact' },
-  { label: 'Size Guide', href: '/shop' },
+  { label: "Contact Us", href: "/contact" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Shipping Policy", href: "/shipping-policy" },
+  { label: "Returns & Refunds", href: "/return-policy" },
+  { label: "Track Your Order", href: "/contact" },
+  { label: "Size Guide", href: "/shop" },
 ];
 
 const quickLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Lookbook', href: '/lookbook' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms & Conditions', href: '/terms' },
+  { label: "About Us", href: "/about" },
+  { label: "Lookbook", href: "/lookbook" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms" },
 ];
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
-      <div className="container-luxury py-16 lg:py-20">
+      <div className="container-luxury py-16 mt-6 lg:py-6">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link href="/" className="font-display text-2xl font-bold text-white">
+            <Link
+              href="/"
+              className="font-display text-2xl font-bold text-white"
+            >
               ThreadCraft
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
-              {BUSINESS.tagline} A premium clothing store in the heart of Chennai,
-              offering curated fashion for men, women, and kids — crafted with
-              intention, worn with confidence.
+              {BUSINESS.tagline} A premium clothing store in the heart of
+              Chennai, offering curated fashion for men, women, and kids —
+              crafted with intention, worn with confidence.
             </p>
             <div className="mt-6 flex gap-3">
               {[
-                { Icon: Instagram, href: BUSINESS.social.instagram, label: 'Instagram' },
-                { Icon: Facebook, href: BUSINESS.social.facebook, label: 'Facebook' },
-                { Icon: Twitter, href: BUSINESS.social.twitter, label: 'Twitter' },
-                { Icon: Youtube, href: BUSINESS.social.youtube, label: 'YouTube' },
+                {
+                  Icon: Instagram,
+                  href: BUSINESS.social.instagram,
+                  label: "Instagram",
+                },
+                {
+                  Icon: Facebook,
+                  href: BUSINESS.social.facebook,
+                  label: "Facebook",
+                },
+                {
+                  Icon: Twitter,
+                  href: BUSINESS.social.twitter,
+                  label: "Twitter",
+                },
+                {
+                  Icon: Youtube,
+                  href: BUSINESS.social.youtube,
+                  label: "YouTube",
+                },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -149,24 +172,58 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-12 grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-3"
+          className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3"
         >
-          <div className="flex items-start gap-3 text-sm text-white/80">
-            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-            <span>
-              {BUSINESS.address.line1}, {BUSINESS.address.line2},{' '}
-              {BUSINESS.address.city}, {BUSINESS.address.state} {BUSINESS.address.postalCode}
-            </span>
+          {/* Address */}
+          <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/15">
+              <MapPin className="h-5 w-5 text-accent" />
+            </div>
+
+            <div>
+              <h4 className="mb-1 text-sm font-semibold text-white">
+                Office Address
+              </h4>
+
+              <p className="text-sm leading-6 text-white/70">
+                {BUSINESS.address.line1}, {BUSINESS.address.line2},{" "}
+                {BUSINESS.address.city}, {BUSINESS.address.state}{" "}
+                {BUSINESS.address.postalCode}
+              </p>
+            </div>
           </div>
-          <div className="flex items-start gap-3 text-sm text-white/80">
-            <Phone className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-            <a href={`tel:${BUSINESS.phone}`} className="hover:text-accent">
-              {BUSINESS.phone}
-            </a>
+
+          {/* Phone */}
+          <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/15">
+              <Phone className="h-5 w-5 text-accent" />
+            </div>
+
+            <div>
+              <h4 className="mb-1 text-sm font-semibold text-white">Call Us</h4>
+
+              <a
+                href={`tel:${BUSINESS.phone}`}
+                className="text-sm text-white/70 transition-colors hover:text-accent"
+              >
+                {BUSINESS.phone}
+              </a>
+            </div>
           </div>
-          <div className="flex items-start gap-3 text-sm text-white/80">
-            <Clock className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-            <span>{BUSINESS.hours}</span>
+
+          {/* Hours */}
+          <div className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/15">
+              <Clock className="h-5 w-5 text-accent" />
+            </div>
+
+            <div>
+              <h4 className="mb-1 text-sm font-semibold text-white">
+                Working Hours
+              </h4>
+
+              <p className="text-sm text-white/70">{BUSINESS.hours}</p>
+            </div>
           </div>
         </motion.div>
 
@@ -175,7 +232,7 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row"
+          className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row"
         >
           <p className="text-xs text-white/50">
             © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
@@ -186,6 +243,20 @@ export function Footer() {
               {BUSINESS.email}
             </a>
           </div>
+          <p className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-slate-500 lg:justify-start">
+            <span>Made with</span>
+            <span className="animate-pulse text-red-500">❤️</span>
+            <span>by</span>
+            <a
+              href="https://creyotech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1 font-semibold text-amber-500 transition-colors duration-300 hover:text-amber-400"
+            >
+              Creyotech IT Services
+              <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </p>
         </motion.div>
       </div>
     </footer>

@@ -328,9 +328,9 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {[
               `${PX}/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=500`,
-              `${PX}/996983/pexels-photo-996983.jpeg?auto=compress&cs=tinysrgb&w=500`,
-              `${PX}/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=500`,
-              `${PX}/261326/pexels-photo-261326.jpeg?auto=compress&cs=tinysrgb&w=500`,
+              'https://images.pexels.com/photos/1488467/pexels-photo-1488467.jpeg',
+              'https://images.pexels.com/photos/37080685/pexels-photo-37080685.jpeg',
+              'https://images.pexels.com/photos/33327418/pexels-photo-33327418.png',
             ].map((src, i) => (
               <motion.div
                 key={i}

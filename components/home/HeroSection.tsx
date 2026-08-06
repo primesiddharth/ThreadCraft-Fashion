@@ -59,7 +59,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
-          className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg"
+           className="mt-6 max-w-xl text-base leading-relaxed text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:text-lg"
         >
           Premium fashion for men, women, and kids — crafted with intention,
           curated with care, and designed to be worn for years, not seasons.
@@ -80,7 +80,7 @@ export function HeroSection() {
             asChild
             size="lg"
             variant="outline"
-            className="border-white/40 text-white hover:bg-white/10 hover:text-white"
+            className="border-white/40 hover:bg-white/10 hover:text-white"
           >
             <Link href="/collections">Explore Collections</Link>
           </Button>

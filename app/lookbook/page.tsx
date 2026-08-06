@@ -11,9 +11,9 @@ import { fadeUp, containerStagger, itemFadeUp, viewportOnce } from '@/lib/animat
 const PX = 'https://images.pexels.com/photos';
 
 const editorialSpreads = [
-  { src: `${PX}/767972/pexels-photo-767972.jpeg?auto=compress&cs=tinysrgb&w=800`, alt: 'Ivory silk editorial', title: 'Ivory Edit', desc: 'Silk blouses and fluid silhouettes for the modern woman.', span: 'lg:col-span-2 lg:row-span-2' },
+  { src: 'https://images.pexels.com/photos/35399679/pexels-photo-35399679.jpeg', alt: 'Ivory silk editorial', title: 'Ivory Edit', desc: 'Silk blouses and fluid silhouettes for the modern woman.', span: 'lg:col-span-2 lg:row-span-2' },
   { src: `${PX}/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Tailoring editorial', title: 'Boardroom', desc: 'Sharp tailoring for the modern executive.' },
-  { src: `${PX}/1666071/pexels-photo-1666071.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Streetwear editorial', title: 'Street Drop', desc: 'Heavyweight fabrics and lived-in washes.' },
+  { src: 'https://images.pexels.com/photos/27396752/pexels-photo-27396752.jpeg', alt: 'Streetwear editorial', title: 'Street Drop', desc: 'Heavyweight fabrics and lived-in washes.' },
   { src: `${PX}/2703202/pexels-photo-2703202.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Outerwear editorial', title: 'Winter Layer', desc: 'Wool, leather, and cashmere for the cold.' },
   { src: `${PX}/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Saree editorial', title: 'Heritage', desc: 'Kanchipuram silk and pure zari — heirloom pieces.' },
   { src: `${PX}/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=800`, alt: 'Accessories editorial', title: 'Crafted', desc: 'Full-grain leather and Swiss-inspired watches.', span: 'lg:col-span-2' },
@@ -21,6 +21,7 @@ const editorialSpreads = [
   { src: `${PX}/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Denim editorial', title: 'Selvedge', desc: 'Japanese denim, woven on vintage looms.' },
   { src: `${PX}/3962285/pexels-photo-3962285.jpeg?auto=compress&cs=tinysrgb&w=600`, alt: 'Kids editorial', title: 'Little Style', desc: 'Organic cotton for the smallest members of the family.' },
   { src: `${PX}/2065200/pexels-photo-2065200.jpeg?auto=compress&cs=tinysrgb&w=800`, alt: 'Coat editorial', title: 'The Wrap', desc: 'Oversized wool coats with a relaxed drape.', span: 'lg:col-span-2' },
+  { src: 'https://images.pexels.com/photos/11215081/pexels-photo-11215081.jpeg', alt: 'T-Shirt editorial', title: 'Casual Vibes', desc: 'Comfortable and stylish for everyday wear.' },
 ];
 
 export default function LookbookPage() {
