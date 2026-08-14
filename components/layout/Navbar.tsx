@@ -1,13 +1,25 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Heart, ShoppingBag, Menu, X, ChevronRight } from 'lucide-react';
-import { NAV_LINKS, SHOP_CATEGORIES, COLLECTIONS_LIST, BUSINESS } from '@/constants/business';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Search,
+  Heart,
+  ShoppingBag,
+  Menu,
+  X,
+  ChevronRight,
+} from "lucide-react";
+import {
+  NAV_LINKS,
+  SHOP_CATEGORIES,
+  COLLECTIONS_LIST,
+  BUSINESS,
+} from "@/constants/business";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -16,14 +28,14 @@ export function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [megaMenu, setMegaMenu] = useState<string | null>(null);
 
-  const isHome = pathname === '/';
+  const isHome = pathname === "/";
   const transparent = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -35,10 +47,10 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'fixed left-0 right-0 top-0 z-50 transition-all duration-500',
+          "fixed left-0 right-0 top-0 z-50 transition-all duration-500",
           transparent
-            ? 'bg-transparent'
-            : 'border-b border-border bg-white/90 backdrop-blur-xl'
+            ? "bg-transparent"
+            : "border-b border-border bg-white/90 backdrop-blur-xl",
         )}
         onMouseLeave={() => setMegaMenu(null)}
       >
@@ -48,11 +60,22 @@ export function Navbar() {
               <Link
                 href="/"
                 className={cn(
-                  'font-display text-xl font-bold tracking-tight transition-colors lg:text-2xl',
-                  transparent ? 'text-white' : 'text-primary'
+                  "flex items-center gap-3 shrink-0 transition-colors",
+                  transparent ? "text-white" : "text-primary",
                 )}
               >
-                ThreadCraft
+                <Image
+                  src="/images/logo.jpg"
+                  alt="ThreadCraft"
+                  width={42}
+                  height={42}
+                  className="h-9 w-9 object-contain rounded-xl lg:h-10 lg:w-10"
+                  priority
+                />
+
+                <span className="font-display text-xl font-bold tracking-tight lg:text-2xl">
+                  ThreadCraft
+                </span>
               </Link>
               <nav className="hidden items-center gap-1 lg:flex">
                 {NAV_LINKS.map((link) => (
@@ -66,11 +89,11 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        'flex items-center px-3 py-2 text-sm font-medium transition-colors',
+                        "flex items-center px-3 py-2 text-sm font-medium transition-colors",
                         transparent
-                          ? 'text-white/90 hover:text-white'
-                          : 'text-foreground hover:text-accent',
-                        pathname === link.href && !transparent && 'text-accent'
+                          ? "text-white/90 hover:text-white"
+                          : "text-foreground hover:text-accent",
+                        pathname === link.href && !transparent && "text-accent",
                       )}
                     >
                       {link.label}
@@ -85,8 +108,10 @@ export function Navbar() {
                 aria-label="Search"
                 onClick={() => setSearchOpen(true)}
                 className={cn(
-                  'flex h-10 w-10 items-center justify-center rounded-full transition-colors',
-                  transparent ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-muted'
+                  "flex h-10 w-10 items-center justify-center rounded-full transition-colors",
+                  transparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-foreground hover:bg-muted",
                 )}
               >
                 <Search className="h-5 w-5" />
@@ -94,8 +119,10 @@ export function Navbar() {
               <button
                 aria-label="Wishlist"
                 className={cn(
-                  'hidden h-10 w-10 items-center justify-center rounded-full transition-colors sm:flex',
-                  transparent ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-muted'
+                  "hidden h-10 w-10 items-center justify-center rounded-full transition-colors sm:flex",
+                  transparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-foreground hover:bg-muted",
                 )}
               >
                 <Heart className="h-5 w-5" />
@@ -103,8 +130,10 @@ export function Navbar() {
               <button
                 aria-label="Shopping cart"
                 className={cn(
-                  'relative flex h-10 w-10 items-center justify-center rounded-full transition-colors',
-                  transparent ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-muted'
+                  "relative flex h-10 w-10 items-center justify-center rounded-full transition-colors",
+                  transparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-foreground hover:bg-muted",
                 )}
               >
                 <ShoppingBag className="h-5 w-5" />
@@ -116,8 +145,10 @@ export function Navbar() {
                 aria-label="Menu"
                 onClick={() => setMobileOpen(true)}
                 className={cn(
-                  'flex h-10 w-10 items-center justify-center rounded-full transition-colors lg:hidden',
-                  transparent ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-muted'
+                  "flex h-10 w-10 items-center justify-center rounded-full transition-colors lg:hidden",
+                  transparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-foreground hover:bg-muted",
                 )}
               >
                 <Menu className="h-5 w-5" />
@@ -127,7 +158,7 @@ export function Navbar() {
         </div>
 
         <AnimatePresence>
-          {megaMenu === 'shop' && (
+          {megaMenu === "shop" && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -159,14 +190,45 @@ export function Navbar() {
                       Featured
                     </h3>
                     <ul className="space-y-2">
-                      <li><Link href="/shop?filter=new" className="text-sm hover:text-accent">New Arrivals</Link></li>
-                      <li><Link href="/shop?filter=best" className="text-sm hover:text-accent">Best Sellers</Link></li>
-                      <li><Link href="/shop?filter=trending" className="text-sm hover:text-accent">Trending</Link></li>
-                      <li><Link href="/shop?filter=sale" className="text-sm hover:text-accent">On Sale</Link></li>
+                      <li>
+                        <Link
+                          href="/shop?filter=new"
+                          className="text-sm hover:text-accent"
+                        >
+                          New Arrivals
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/shop?filter=best"
+                          className="text-sm hover:text-accent"
+                        >
+                          Best Sellers
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/shop?filter=trending"
+                          className="text-sm hover:text-accent"
+                        >
+                          Trending
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/shop?filter=sale"
+                          className="text-sm hover:text-accent"
+                        >
+                          On Sale
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                   <div className="col-span-2">
-                    <Link href="/shop/women" className="group relative block aspect-[16/9] overflow-hidden rounded-lg">
+                    <Link
+                      href="/shop/women"
+                      className="group relative block aspect-[16/9] overflow-hidden rounded-lg"
+                    >
                       <Image
                         src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=800"
                         alt="Featured collection"
@@ -176,8 +238,12 @@ export function Navbar() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 text-white">
-                        <p className="text-xs uppercase tracking-wider">New Season</p>
-                        <p className="font-display text-lg font-semibold">Evening Edit</p>
+                        <p className="text-xs uppercase tracking-wider">
+                          New Season
+                        </p>
+                        <p className="font-display text-lg font-semibold">
+                          Evening Edit
+                        </p>
                       </div>
                     </Link>
                   </div>
@@ -185,7 +251,7 @@ export function Navbar() {
               </div>
             </motion.div>
           )}
-          {megaMenu === 'collections' && (
+          {megaMenu === "collections" && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -196,26 +262,26 @@ export function Navbar() {
               <div className="container-luxury py-8">
                 <div className="grid grid-cols-4 gap-6">
                   {COLLECTIONS_LIST.map((col) => {
-                    const slug = col.href.split('/').pop() || '';
+                    const slug = col.href.split("/").pop() || "";
                     return (
-                    <Link
-                      key={col.href}
-                      href={col.href}
-                      className="group flex flex-col gap-2"
-                    >
-                      <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                        <Image
-                          src={`https://images.pexels.com/photos/${getCollectionImage(slug)}/pexels-photo-${getCollectionImage(slug)}.jpeg?auto=compress&cs=tinysrgb&w=400`}
-                          alt={col.label}
-                          fill
-                          sizes="200px"
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      </div>
-                      <span className="text-sm font-medium transition-colors group-hover:text-accent">
-                        {col.label}
-                      </span>
-                    </Link>
+                      <Link
+                        key={col.href}
+                        href={col.href}
+                        className="group flex flex-col gap-2"
+                      >
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                          <Image
+                            src={`https://images.pexels.com/photos/${getCollectionImage(slug)}/pexels-photo-${getCollectionImage(slug)}.jpeg?auto=compress&cs=tinysrgb&w=400`}
+                            alt={col.label}
+                            fill
+                            sizes="200px"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </div>
+                        <span className="text-sm font-medium transition-colors group-hover:text-accent">
+                          {col.label}
+                        </span>
+                      </Link>
                     );
                   })}
                 </div>
@@ -254,7 +320,14 @@ export function Navbar() {
                   Popular Searches
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Silk Saree', 'Blazer', 'Leather Bag', 'Sneakers', 'Wedding', 'Streetwear'].map((s) => (
+                  {[
+                    "Silk Saree",
+                    "Blazer",
+                    "Leather Bag",
+                    "Sneakers",
+                    "Wedding",
+                    "Streetwear",
+                  ].map((s) => (
                     <Link
                       key={s}
                       href={`/shop?q=${s.toLowerCase()}`}
@@ -282,14 +355,20 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.aside
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ x: "100%" }}
+              transition={{
+                type: "tween",
+                duration: 0.35,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="fixed right-0 top-0 z-[70] flex h-full w-[85%] max-w-sm flex-col bg-white lg:hidden"
             >
               <div className="flex items-center justify-between border-b border-border px-5 py-4">
-                <span className="font-display text-lg font-bold">ThreadCraft</span>
+                <span className="font-display text-lg font-bold">
+                  ThreadCraft
+                </span>
                 <button
                   aria-label="Close menu"
                   onClick={() => setMobileOpen(false)}
@@ -342,7 +421,7 @@ function getCollectionImage(slug: string): number {
     winter: 2703202,
     festive: 2589653,
     wedding: 1755428,
-    'office-wear': 769733,
+    "office-wear": 769733,
     casual: 1183266,
     luxury: 904350,
     streetwear: 37297401,

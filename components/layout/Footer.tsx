@@ -20,6 +20,7 @@ import {
   COLLECTIONS_LIST,
 } from "@/constants/business";
 import { fadeUp, viewportOnce } from "@/lib/animations";
+import Image from "next/image";
 
 const customerService = [
   { label: "Contact Us", href: "/contact" },
@@ -48,9 +49,20 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link
               href="/"
-              className="font-display text-2xl font-bold text-white"
+              className="font-display flex gap-3 items-center text-2xl font-bold text-white"
             >
-              ThreadCraft
+              <Image
+                src="/images/logo.jpg"
+                alt="ThreadCraft"
+                width={42}
+                height={42}
+                className="h-9 w-9 object-contain rounded-xl lg:h-10 lg:w-10"
+                priority
+              />
+
+              <span className="font-display text-xl font-bold tracking-tight lg:text-2xl">
+                ThreadCraft
+              </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
               {BUSINESS.tagline} A premium clothing store in the heart of
